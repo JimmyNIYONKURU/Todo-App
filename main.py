@@ -1,4 +1,4 @@
-user_prompt = "Type add, show or exit: "
+user_prompt = "Type add, show, edit, complete or exit: "
 todos = []
 while True:
     user_decision = input(user_prompt)
@@ -8,13 +8,15 @@ while True:
             todo = input("Enter a todo: ")
             todos.append(todo)
         case "show":
-            for item in todos:
-                print(item)
+            for index, item in enumerate(todos):
+                print(f"{index + 1}-{item}")
         case "edit":
-            index_task = int(input("What's the index of the task you wanna edit? "))
+            index_task = int(input("Index of the task to edit: "))
             new_item = input("Enter a new task: ")
             todos[index_task - 1] = new_item
-
+        case "complete":
+            index_task = int(input("Index of the task to mark as completed: "))
+            todos.pop(index_task - 1)
         case "exit":
             break
 print("Bye!")
