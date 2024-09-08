@@ -10,6 +10,11 @@ while True:
         case "show":
             for item in todos:
                 print(item)
+        case "edit":
+            index_task = int(input("What's the index of the task you wanna edit? "))
+            new_item = input("Enter a new task: ")
+            todos[index_task - 1] = new_item
+
         case "exit":
             break
 print("Bye!")
