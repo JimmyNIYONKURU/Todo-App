@@ -14,6 +14,7 @@ while True:
             file = open("todos.txt", "w")
             file.writelines(todos)
             file.close()
+
         case "show":
             file = open("todos.txt","r")
             todos = file.readlines()
@@ -26,6 +27,7 @@ while True:
             index_task = int(input("Index of the task to edit: "))
             new_item = input("Enter a new task: ")
             todos[index_task - 1] = new_item
+
         case "complete":
             index_task = int(input("Index of the task to mark as completed: "))
             todos.pop(index_task - 1)
