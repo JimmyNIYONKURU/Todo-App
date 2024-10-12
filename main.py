@@ -56,6 +56,6 @@ while True:
         except IndexError:
             print('Invalid command!')
             continue
-    elif "exit" in user_decision:
+    elif user_decision.startswith('exit'):
         break
 print("Bye!")
