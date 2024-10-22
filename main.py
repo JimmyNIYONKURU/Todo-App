@@ -1,7 +1,8 @@
 def get_todos():
-    with open("todos.txt", "r") as file:
-        todos = file.readlines()
+    with open("todos.txt", "r") as file_local:
+        todos_local = file.readlines()
     return todos
+
 
 user_prompt = "Type add, show, edit, complete or exit: "
 while True:
