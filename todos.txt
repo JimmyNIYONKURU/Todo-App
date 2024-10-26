@@ -2,4 +2,7 @@ leetcoding
 laundry
 soldering
 Running
-Prepare
+fix computer
+update the os
+fix the computer
+algorithm design

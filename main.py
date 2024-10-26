@@ -1,9 +1,9 @@
-def get_todos(filepath):
+def get_todos(filepath="todos.txt"):
     with open(filepath, "r") as file_local:
         todos_local = file_local.readlines()
     return todos_local
 
-def write_todos(filepath, todos_arg):
+def write_todos(todos_arg, filepath="todos.txt"):
     with open(filepath, "w") as file:
         file.writelines(todos_arg)
 
@@ -12,15 +12,15 @@ while True:
     user_decision = input(user_prompt)
     user_decision = user_decision.strip()
     if user_decision.startswith('add'):
-        todos = get_todos("todos.txt")
+        todos = get_todos()
         todo = user_decision[4:]
         todos.append(todo + '\n')
 
-        write_todos("todos.txt", todos)
+        write_todos(todos)
 
 
     elif user_decision.startswith('show'):
-        todos = get_todos("todos.txt")
+        todos = get_todos()
 
         # new_todos = [item.strip('\n') for item in todos]
 
@@ -31,12 +31,12 @@ while True:
     elif user_decision.startswith('edit'):
         try:
             index_task = int(user_decision[5:])
-            todos = get_todos("todos.txt")
+            todos = get_todos()
 
             new_item = input("Enter a new task: ")
             todos[index_task - 1] = new_item + '\n'
 
-            write_todos("todos.txt", todos)
+            write_todos(todos)
         except ValueError:
             print('Your command is not valid!')
             continue
@@ -45,12 +45,12 @@ while True:
         try:
             index_task = int(user_decision[8:])
 
-            todos = get_todos("todos.txt")
+            todos = get_todos()
             index = index_task - 1
             todo_toremove = todos[index].strip('\n')
             todos.pop(index)
 
-            write_todos("todos.txt", todos)
+            write_todos(todos)
 
             print(f"{todo_toremove} was removed from you tasks")
         except IndexError:
