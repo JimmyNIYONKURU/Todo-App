@@ -50,6 +50,7 @@ while True:
 
         case "Exit":
             break
+
         case "todos":
             window['todo'].Update(value=values['todos'][0])
         case sg.WIN_CLOSED:

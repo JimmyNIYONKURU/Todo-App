@@ -4,5 +4,4 @@ soldering
 Running
 fix computer
 update the os
-fix the computer
 algorithm design
