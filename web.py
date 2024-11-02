@@ -10,11 +10,14 @@ def add_to_do():
 todos = func.get_todos()
 
 st.title("To do app")
-st.subheader("This NIYONKURU's to do app")
+st.subheader("This is  NIYONKURU's to do app")
 st.write("This app is to increase your productivity")
 
-for todo in todos:
-    st.checkbox(todo)
-st.text_input(label="New To-do", placeholder="Add a new to do...", on_change= add_to_do, key ="new_todo")
-
-print("hello")
+for index,todo in enumerate(todos):
+    check_box = st.checkbox(todo, key=todo)
+    if check_box:
+        todos.pop(index)
+        func.write_todos(todos)
+        del st.session_state[todo]
+        st.rerun()
+st.text_input(label="", placeholder="Add a new to do...", on_change= add_to_do, key ="new_todo")
